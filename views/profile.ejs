@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home - Love-for-the-Uglies</title>
+		<link rel="stylesheet" href="/style/main.css">
+	</head>
+	<body>
+		<%- include("partials/navbar") %>
+		<main>
+			<h1>Profile of <%= profile.username %></h1>
+			<% if (can_edit) { %><a href="/edit/<%= profile.username %>">Edit Profile</a><% } %>
+		</main>
+	</body>
+</html>

@@ -4,8 +4,8 @@
 			<li><a href="/">Love-for-the-Uglies</a></li>
 			<li><a href="/comments">Comments</a></li>
 			<li><a href="/play">Game</a></li>
-			<% if (user) { %>
-				<li><a href="/profile/<% user.id %>">Profile</a></li>
+			<% if (user != null) { %>
+				<li><a href="/profile/<%= user.username %>">Profile</a></li>
 				<li><a href="/logout">Sign Out</a></li>
 			<% } else { %>
 				<li><a href="/login">Sign In</a></li>
