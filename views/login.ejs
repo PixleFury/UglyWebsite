@@ -6,9 +6,31 @@
 	</head>
 	<body>
 		<%- include("partials/navbar") %>
-		<main>
-			<h1>Sign In or Register</h1>
-			<p>Justice for ugly animals please.</p>
+		<main id="login">
+			<div>
+				<h1>Sign In</h1>
+				<form action="/login" method="post">
+					<label for="username">Username</label>
+					<input type="text" name="username" id="username" placeholder="Username" autofocus required>
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" placeholder="Password" required>
+					<input type="submit" value="Sign In">
+				</form>
+			</div>
+			<hr>
+			<div>
+				<h1>Register</h1>
+				<p>Register to play games and leave comments!</p>
+				<form action="/register" method="post">
+					<label for="reg-username">Username</label>
+					<input type="text" name="username" id="reg-username" placeholder="Username" required>
+					<label for="reg-password">Password</label>
+					<input type="password" name="password" id="reg-password" placeholder="Password" required>
+					<label for="reg-password-copy">Confirm Password</label>
+					<input type="password" name="password-copy" id="reg-password-copy" placeholder="Confirm Password" required>
+					<input type="submit" value="Register">
+				</form>
+			</div>
 		</main>
 	</body>
 </html>

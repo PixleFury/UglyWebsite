@@ -4,6 +4,7 @@ const path = require("path");
 // Create server and configure settings
 const app = express();
 app.use(express.static("public"));
+app.use(express.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
@@ -18,9 +19,7 @@ app.get("/comments", (req, res) => {
 	res.render("comments", {user: null});
 });
 
-app.get("/login", (req, res) => {
-	res.render("login", {user: null});
-});
+app.use(require("./routers/account"));
 
 // Listen on environment port for Heroku, or just use 8080 local hosting
 const PORT = process.env.PORT || 8080;
