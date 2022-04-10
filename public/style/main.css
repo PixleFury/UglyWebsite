@@ -1,7 +1,47 @@
-body {
-	color: brown;
+* { /* Reset built-in styles */
+	box-sizing: border-box;
+	padding: 0; margin: 0;
+	font-family: "Segoe UI";
 }
 
-p {
-	color: green;
+body {
+	background-color: #ddcfba;
+}
+
+main {
+	max-width: 1000px;
+	margin: auto;
+	padding: 2em;
+}
+
+#main-nav {
+	background: #108048;
+	box-shadow: #000000 0 0 8px;
+}
+
+#main-nav > #layout-wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 1000px;
+	margin: auto;
+}
+
+#main-nav a {
+	font-size: 1.1rem;
+	font-weight: bold;
+	text-decoration: none;
+	color: #ffffff;
+	padding: 0.8em;
+}
+
+#main-nav a:hover {
+	background-color: #ffffff40;
+}
+
+#main-nav ul {
+	display: inline-flex;
+	flex-direction: row;
+	list-style: none;
 }
