@@ -18,10 +18,7 @@ app.get("/play", (req, res) => {
 	res.render("play", {user: req.session.user});
 });
 
-app.get("/comments", (req, res) => {
-	res.render("comments", {user: req.session.user});
-});
-
+app.use(require("./routers/comments"));
 app.use(require("./routers/account"));
 
 // Listen on environment port for Heroku, or just use 8080 local hosting

@@ -8,7 +8,23 @@
 		<%- include("partials/navbar") %>
 		<main>
 			<h1>Comments</h1>
-			<p>Justice for ugly animals please.</p>
+			<p>Leave nice comments about your favourite ugly animal.</p>
+			<ol id="comments-box">
+				<% comments.forEach(comment => { %>
+					<li class="comment">
+						<a class="author" href="/profile/<%= comment.author %>"><%= comment.author %></a>
+						<span><%= comment.text %></span>
+						<% if (user && (user.is_admin || user.username == comment.author)) { %><a href="/deleteComment/<%= comment._id %>">remove</a><% } %>
+					</li>
+				<% }) %>
+			</ol>
+			<% if (user != null) { %>
+				<form action="/postComment" method="post">
+					<label for="text">Leave a comment</label>
+					<input type="text" name="comment" id="comment" placeholder="Comment" autofocus>
+					<input type="submit" value="Send">
+				</form>
+			<% } %>
 		</main>
 	</body>
 </html>

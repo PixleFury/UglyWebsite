@@ -1,5 +1,4 @@
 const express = require("express");
-const { Collection } = require("mongodb");
 const MongoClient = require("mongodb").MongoClient;
 const router = express.Router();
 
