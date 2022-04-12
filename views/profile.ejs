@@ -8,7 +8,38 @@
 		<%- include("partials/navbar") %>
 		<main>
 			<h1>Profile of <%= profile.username %></h1>
-			<% if (can_edit) { %><a href="/edit/<%= profile.username %>">Edit Profile</a><% } %>
+			<% if (profile.is_admin) { %><p>Moderator</p><% } %>
+
+			<h2>Biography</h2>
+			<% if (can_edit) { %>
+				<form action="/updateAccount/<%= profile.username %>" method="post">
+					<textarea name="bio" id="bio" cols="30" rows="4"><%= profile.bio %></textarea>
+					<input type="submit" value="Update Bio">
+				</form>
+			<% } else { %>
+				<p><%= profile.bio %></p>
+			<% } %>
+
+			<h2>Highscore</h2>
+			<% if (highscore != null) { %>
+				<p><%= highscore %></p>
+				<% if (can_edit) { %>
+					<form action="/removeScore/<%= profile.username %>" method="post">
+						<input type="submit" value="Remove">
+					</form>
+				<% } %>
+			<% } %>
+			
+			<% if (can_edit) { %>
+				<form action="/deleteAccount/<%= profile.username %>" method="post">
+					<h2>Delete Account</h2>
+					<% if (user.username == profile.username) { %>
+						<label for="password">Password</label>
+						<input type="password" name="password" id="password" placeholder="Password" required>
+					<% } %>
+					<input type="submit" value="Delete Account">
+				</form>
+			<% } %>
 		</main>
 	</body>
 </html>

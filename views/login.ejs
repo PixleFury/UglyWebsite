@@ -23,7 +23,7 @@
 				<p>Register to play games and leave comments!</p>
 				<form action="/register" method="post">
 					<label for="reg-username">Username</label>
-					<input type="text" name="username" id="reg-username" placeholder="Username" required>
+					<input type="text" name="username" id="reg-username" placeholder="Username" required pattern="[a-zA-Z0-9_]+">
 					<label for="reg-password">Password</label>
 					<input type="password" name="password" id="reg-password" placeholder="Password" required>
 					<label for="reg-password-copy">Confirm Password</label>

@@ -5,7 +5,7 @@
 			<li><a href="/comments">Comments</a></li>
 			<li><a href="/play">Game</a></li>
 			<% if (user != null) { %>
-				<li><a href="/profile/<%= user.username %>">Profile</a></li>
+				<li><a href="/profile/<%= user.username %>"><%= user.username %></a></li>
 				<li><a href="/logout">Sign Out</a></li>
 			<% } else { %>
 				<li><a href="/login">Sign In</a></li>
