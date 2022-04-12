@@ -12,6 +12,16 @@
 				<p>Game could not be loaded :(</p>
 			</canvas>
 			<script src="/scripts/game.js"></script>
+			<h2>Highscores</h2>
+			<table>
+				<tr><th>User</th><th>Score</th></tr>
+				<% scores.forEach(entry => { %>
+					<tr>
+						<td><a href="profile/<%= entry.user %>"><%= entry.user %></a></td>
+						<td><%= entry.score %></td>
+					</tr>
+				<% }) %>
+			</table>
 		</main>
 	</body>
 </html>

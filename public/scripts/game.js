@@ -143,6 +143,12 @@ states[State.GameOver] = {
 		g.font = "48px impact";
 		g.textAlign = "center";
 		g.fillStyle = "black";
+
+		// Send score to server
+		let req = new XMLHttpRequest();
+		req.open("POST", "/submitScore", true);
+		req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		req.send(`score=${score}`);
 	},
 
 	update: (delta) => {},
