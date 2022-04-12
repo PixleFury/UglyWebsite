@@ -6,22 +6,26 @@
 	</head>
 	<body>
 		<%- include("partials/navbar") %>
-		<main>
+		<main id="play">
 			<h1>Play</h1>
-			<canvas id="game-screen">
-				<p>Game could not be loaded :(</p>
-			</canvas>
-			<script src="/scripts/game.js"></script>
-			<h2>Highscores</h2>
-			<table>
-				<tr><th>User</th><th>Score</th></tr>
-				<% scores.forEach(entry => { %>
-					<tr>
-						<td><a href="profile/<%= entry.user %>"><%= entry.user %></a></td>
-						<td><%= entry.score %></td>
-					</tr>
-				<% }) %>
-			</table>
+			<div id="layout-wrapper">
+				<canvas id="game-screen">
+					<p>Game could not be loaded :(</p>
+				</canvas>
+				<script src="/scripts/game.js"></script>
+				<div>
+					<h2>Highscores</h2>
+					<table>
+						<tr><th>User</th><th>Score</th></tr>
+						<% scores.forEach(entry => { %>
+							<tr>
+								<td><a href="profile/<%= entry.user %>"><%= entry.user %></a></td>
+								<td><%= entry.score %></td>
+							</tr>
+						<% }) %>
+					</table>
+				</div>
+			</div>
 		</main>
 	</body>
 </html>

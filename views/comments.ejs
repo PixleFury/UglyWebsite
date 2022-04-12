@@ -13,14 +13,14 @@
 				<% comments.forEach(comment => { %>
 					<li class="comment">
 						<a class="author" href="/profile/<%= comment.author %>"><%= comment.author %></a>
+						<% if (user && (user.is_admin || user.username == comment.author)) { %><a href="/deleteComment/<%= comment._id %>"0>(remove comment)</a><% } %>
+						<br>
 						<span><%= comment.text %></span>
-						<% if (user && (user.is_admin || user.username == comment.author)) { %><a href="/deleteComment/<%= comment._id %>">remove</a><% } %>
 					</li>
 				<% }) %>
 			</ol>
 			<% if (user != null) { %>
-				<form action="/postComment" method="post">
-					<label for="text">Leave a comment</label>
+				<form id="comment-form" action="/postComment" method="post">
 					<input type="text" name="comment" id="comment" placeholder="Comment" autofocus>
 					<input type="submit" value="Send">
 				</form>
